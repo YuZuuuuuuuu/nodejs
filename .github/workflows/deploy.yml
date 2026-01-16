@@ -50,8 +50,8 @@ jobs:
       - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
-          [cite_start]username: ${{ secrets.DOCKER_USERNAME }} # [cite: 44, 50]
-          [cite_start]password: ${{ secrets.DOCKER_PASSWORD }} # [cite: 45, 50]
+          username: ${{ secrets.DOCKER_USERNAME }} # [cite: 44, 50]
+          password: ${{ secrets.DOCKER_PASSWORD }} # [cite: 45, 50]
 
       # Construction et Push de l'image (Nom adapté pour nodejs)
       - name: Build & Push Docker image
