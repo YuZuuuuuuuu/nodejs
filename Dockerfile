@@ -1,11 +1,21 @@
-# Utilisez une image de base avec Java
-FROM eclipse-temurin:17-jdk
-# Définir le répertoire de travail dans le conteneur
-WORKDIR /app
-# Copier le fichier jar généré dans le conteneur
-COPY target/*.jar app.jar
-# Exposer le port sur lequel Spring Boot écoute
-EXPOSE 8080
-# Commande pour lancer l'application Spring Boot
-ENTRYPOINT ["java", "-jar", "/app/app.jar"]
+# Utiliser une image de base Node.js
+FROM node:20-alpine
 
+# Définir le répertoire de travail
+WORKDIR /app
+
+# Copier les fichiers de dépendances
+COPY package*.json ./
+
+# Installer les dépendances
+RUN npm install --production
+
+# Copier le reste du code source
+COPY . .
+
+# Exposer le port (vérifiez le port utilisé dans votre index.js/app.js)
+EXPOSE 3000
+
+# Commande de démarrage
+CMD ["node", "index.js"] 
+# (Remplacez index.js par votre fichier d'entrée, ex: app.js ou server.js)
