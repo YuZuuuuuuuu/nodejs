@@ -28,7 +28,10 @@ jobs:
 
       # Installation des dépendances
       - name: Install dependencies
-        run: npm ci
+        run: npm install
+
+      - name: Run Tests
+        run: npm test --if-present
 
       # Lancement des tests (si vous en avez configuré dans package.json)
       - name: Run Tests
