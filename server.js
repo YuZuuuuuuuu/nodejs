@@ -1,4 +1,4 @@
-// BASE SETUP
+	// BASE SETUP
 // =============================================================================
 
 // call the packages we need
@@ -42,6 +42,11 @@ router.use(function(req, res, next) {
 	// do logging
 	console.log('Something is happening.');
 	next();
+});
+
+// Route de test simple pour le TP
+app.get('/', function(req, res) {
+    res.send('Hello World ! Le TP est validé 🎉');
 });
 
 // test route to make sure everything is working (accessed at GET http://localhost:8080/api)
